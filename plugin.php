@@ -15,4 +15,5 @@ function vera_custom_css(){
 }
 add_action('wp_enqueue_scripts', 'vera_custom_css');
 
+
 ?>
