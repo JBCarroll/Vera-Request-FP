@@ -72,6 +72,9 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+
+
+
     // Form Input Calculations
     // $("input").keyup(function(){
     //     var val1 = +$(".name_result").data('price');
@@ -80,32 +83,36 @@ jQuery(document).ready(function ($) {
     //     $("#total").val(val1+val2+val3);
     // });
 
-    $("input").on('keyup', function(){
-        $('input[name=ProjectPriceName]').keyup(function(){
-            if($(this).val().length){
-                $(".name_result").addClass('nameprice');
-            }else{
-                $(".name-result").removeClass("nameprice");
+    $("input").on('keyup', function () {
+        $('input[name=additional_pages]').keyup(function () {
+            if ($(this).val().length) {
+                $(".additional_pages").addClass('pages_price');
+            } else {
+                $(".additional_pages").removeClass("pages_price");
             }
         });
-        $('input[name=ProjectPriceDesc]').keyup(function(){
-            if($(".description_result").val().length){
-                $(".description_result").addClass('des_price');
-            }else{
-                $(".description_result").removeClass("des_price");
+        $('input[name=additional_sections]').keyup(function () {
+            if ($(".additional_sections").val().length) {
+                $(".additional_sections").addClass('sections_price');
+            } else {
+                $(".additional_sections").removeClass("sections_price");
             }
         });
-        $('input[name=ProjectPriceLink]').keyup(function(){
-            if($(".links_result").val().length){
-                $(".links_result").addClass('link_price');
-            }else{
-                $(".links_result").removeClass("link_price");
+        $('input[name=newsletter_signup]').keyup(function () {
+            if ($(".newsletter_signup").val().length) {
+                $(".newsletter_signup").addClass('newsletter_price');
+            } else {
+                $(".newsletter_signup").removeClass("newsletter_price");
             }
         });
 
-        var val1 = +$(".nameprice").data('price');
-        var val2 = +$(".des_price").data('price');
-        var val3 = +$(".link_price").data('price');
-        $("#total").val(val1+val2+val3);
+        // var val1 = +$(".pages_price").val();
+        // var val2 = +$(".sections_price").val();
+        // var val3 = +$(".newsletter_price").val();
+
+        var total_pages = $('.additional_pages').val() * 950;
+        var total_sections = $('.additional_sections').val() * 350;
+        var total_newsletter = $('.newsletter_signup').data('price');
+        $("#total").val(total_pages + total_sections + total_newsletter);
     });
 });

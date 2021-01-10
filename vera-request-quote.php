@@ -18,21 +18,28 @@ function vera_request_quote_function() {
     echo '<div class="container-fluid">';
     echo '<form id="veraform" action="' . esc_url( $_SERVER['REQUEST_URI'] ) . '" method="POST">';
     echo '<ul id="progressbar">';
-    echo '<li class="active" id="account"><strong>Account</strong></li>';
+    echo '<li class="active" id="account"><strong>Specifications</strong></li>';
     echo '<li id="personal"><strong>Personal</strong></li>';
-    echo '<li id="payment"><strong>Image</strong></li>';
-    echo '<li id="confirm"><strong>Confirm</strong></li>';
+    echo '<li id="payment"><strong>Summary</strong></li>';
+    echo '<li id="confirm"><strong>Thank You</strong></li>';
     echo '</ul>';
     echo '<div class="progress"><div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>';
     echo '<br>';
-    // Step 1
+    // Website Specifications
     echo '<fieldset>';
-    echo '<div class="form-card"><div class="row"><div class="col-7"><h2 class="fs-title">Project Specifications:</h2></div><div class="col-5"><h2 class="steps">Step 1 - 2</h2></div></div>';
-    echo '<label class="fieldlabels">Project Type: *</label> <input type="text" value="' . ( isset( $_POST["vd-project-type"] ) ? esc_attr( $_POST["vd-project-type"] ) : '' ) . '" name="project-type" placeholder="Project Type" /> <label class="fieldlabels">Username: *</label> <input type="text" name="uname" placeholder="UserName" /> <label class="fieldlabels">Password: *</label> <input type="password" name="pwd" placeholder="Password" /> <label class="fieldlabels">Confirm Password: *</label> <input type="password" name="cpwd" placeholder="Confirm Password" />';
+    echo '<div class="form-card"><div class="row"><div class="col-7"><h2 class="fs-title">Project Specifications:</h2></div><div class="col-5"><h2 class="steps">Step 1 - 4</h2></div></div>';
+    echo '<label class="fieldlabels">Type of website: *</label>
+            <select class="form-control" name="type_of_website" disable="disable">
+                <option>One pager - 4 sections</option>
+            </select>
+            <label class="fieldlabels">Additional pages</label> <input type="number" name="additional_pages" class="additional_pages" placeholder="Additional pages"/>
+            <label class="fieldlabels">Additional sections</label> <input type="text" name="additional_sections" class="additional_sections" placeholder="Additional sections" />
+            <label class="fieldlabels">Newsletter signup</label> <input type="text" name="newsletter_signup" class="newsletter_signup" placeholder="Newsletter signup" data-price="750"/>
+            <label class="fieldlabels">Training p/h</label> <input type="text" name="training" class="training" placeholder="Training p/h" />';
     echo '</div>';
     echo '<input type="button" name="next" class="next action-button" value="Next" />';
     echo '</fieldset>';
-    // Step 2
+    // Personal Information
     echo '<fieldset>';
     echo '<div class="form-card">';
     echo '<div class="row">';
@@ -45,7 +52,7 @@ function vera_request_quote_function() {
     echo '</div>';
     echo '<input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />';
     echo '</fieldset>';
-    // Step 3
+    // Summary Information
     echo '<fieldset>';
     echo '<div class="form-card">';
     echo '<div class="row">';
@@ -59,7 +66,7 @@ function vera_request_quote_function() {
     echo '</div>';
     echo '<input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />';
     echo '</fieldset>';
-    // Step 4
+    // Thank You Step
     echo '<fieldset>';
     echo '<div class="form-card">';
     echo '<div class="row">';
