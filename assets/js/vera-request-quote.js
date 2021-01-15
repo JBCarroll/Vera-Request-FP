@@ -72,15 +72,7 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
-
-    // Form Input Calculations
-    // $("input").keyup(function(){
-    //     var val1 = +$(".name_result").data('price');
-    //     var val2 = +$(".description_result").data('price');
-    //     var val3 = +$(".links_result").data('price');
-    //     $("#total").val(val1+val2+val3);
-    // });
-
+    // Form calculations
     $("input").on('keyup', function () {
         $('input[name=additional_pages]').keyup(function () {
             if ($(this).val().length) {
@@ -103,10 +95,6 @@ jQuery(document).ready(function ($) {
                 $(".newsletter_signup").removeClass("newsletter_price");
             }
         });
-
-        // var val1 = +$(".pages_price").val();
-        // var val2 = +$(".sections_price").val();
-        // var val3 = +$(".newsletter_price").val();
 
         var total_pages = +$('.additional_pages').val() * 950;
         var total_sections = +$('.additional_sections').val() * 350;

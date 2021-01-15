@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <label class="fieldlabels">Additional sections</label>
         <input type="text" name="additional_sections" class="additional_sections" placeholder="Additional sections" />
     <label class="fieldlabels">Newsletter signup</label>
-        <select name="newsletter_signup" class="form-control newsletter_signup">
+        <select name="newsletter_signup" class="form-control newsletter_signup" value="50">
             <option value="750">Yes</option>
             <option value="0">No</option>
         </select>
@@ -58,10 +58,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <h2 class="steps">Step 2 - 4</h2>
             </div>
         </div>
-    <label class="fieldlabels">Project Name: *</label> <input type="text" name="fname" disabled="disabled" id="nameclass"/>
-    <label class="fieldlabels">Project Description: *</label> <input type="text" name="lname" disabled="disabled"/>
-    <label class="fieldlabels">Links: *</label> <input type="text" name="phno" disabled="disabled"/>
-    <label class="fieldlabels">Total: *</label> <input type="text" name="phno_2" disabled="disabled" id="total" />
+        <label class="fieldlabels">Project Name: *</label> <input type="text" name="fname" disabled="disabled" id="nameclass"/>
+        <label class="fieldlabels">Project Description: *</label> <input type="text" name="lname" disabled="disabled"/>
+        <label class="fieldlabels">Links: *</label> <input type="text" name="phno" disabled="disabled"/>
+        <label class="fieldlabels">Total: *</label> <input type="text" name="phno_2" disabled="disabled" id="total" />
     </div>
         <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
     </fieldset>
@@ -76,9 +76,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <h2 class="steps">Step 3 - 4</h2>
             </div>
         </div>
-    <label class="fieldlabels">Project Name: *</label> <input type="text" name="ProjectPriceName" class="name_result"/>
-    <label class="fieldlabels">Project Description: *</label> <input type="text" name="ProjectPriceDesc"  class="description_result"/>
-    <label class="fieldlabels">Links: *</label> <input type="text" name="ProjectPriceLink" class="links_result"/>
+        <label class="fieldlabels">Project Name: *</label> <input type="text" name="ProjectPriceName" class="name_result"/>
+        <label class="fieldlabels">Project Description: *</label> <input type="text" name="ProjectPriceDesc"  class="description_result"/>
+        <label class="fieldlabels">Links: *</label> <input type="text" name="ProjectPriceLink" class="links_result"/>
     </div>
     <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
     </fieldset>
