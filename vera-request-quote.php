@@ -8,6 +8,8 @@ Author: Vera Digital
 Author URI: https://veradigital.online
 */
 require_once("plugin.php");
+require("initialize.php");
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,7 +23,7 @@ function vera_request_quote_function() {
 // Generate Shortcode
 function vera_shortcode() {
     ob_start();
-    // vera_deliver_mail();
+    vera_deliver_mail();
     vera_request_quote_function();
 
     return ob_get_clean();
