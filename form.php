@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <br>
-    <!-- Website Specifications -->
+    <!-- Specifications -->
         <fieldset>
             <div class="form-card">
                 <div class="row">
