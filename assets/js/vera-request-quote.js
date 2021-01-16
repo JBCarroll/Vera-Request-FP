@@ -72,6 +72,21 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    // Conditional Form fields
+    $(function () {
+        $("#select").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".service_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".service_container").hide();
+                }
+            });
+        }).change();
+    });
+
     // Form calculations
     $("input").on('keyup', function () {
         $('input[name=additional_pages]').keyup(function () {
