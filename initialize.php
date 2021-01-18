@@ -6,11 +6,15 @@ include_once("vera-request-quote.php");
 function vera_deliver_mail() {
 
     // If the submit button is clicked, send the email
-    if ( isset( $_POST['vera-submitted'] ) ) {
+    if ( isset( $_POST['vera-submitted'] ) && !empty($_POST['vera-submitted']) ) {
         // Sanitize form values
-        $name    = sanitize_text_field( $_POST["firstname"] );
         $service    = ( $_POST["type_of_service"] );
         $type_of_website    = ( $_POST["type_of_website"] );
+        $additional_pages    = ( $_POST["additional_pages"] );
+        $one_pager_sections    = ( $_POST["one_pager_sections"] );
+        $newsletter_signup    = ( $_POST["newsletter_signup"] );
+        $training    = ( $_POST["training"] );
+        $name    = sanitize_text_field( $_POST["firstname"] );
         $surname = sanitize_text_field( $_POST["surname"] );
         $phone = sanitize_text_field( $_POST["phone"] );
         $email   = sanitize_email( $_POST["email"] );
@@ -19,8 +23,19 @@ function vera_deliver_mail() {
         $headers = ("Request a Quote");
         // Email Body
         $message = "<div>
-                    <h3>Name: $service</h3>
+                    <h3>Personal Information</h3>
+                    <p>First Name: $name</p>
+                    <p>Surname: $surname</p>
+                    <p>Contact Number: $phone</p>
+                    <p>Email Address: $email</p>
+                    <hr>
+                    <h3>Quote Information</h3>
+                    <p>Selected Service: $service</p>
                     <p>Type of Website: $type_of_website</p>
+                    <p>Sections for One-Pager: $one_pager_sections</p>
+                    <p>Number of Additional Pages: $additional_pages</p>
+                    <p>Newsletter Signup: $newsletter_signup</p>
+                    <p>Training P/H: $training</p>
                     </div>";
         // Filter to add email content type
         add_filter('wp_mail_content_type', function($content_type){

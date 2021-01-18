@@ -87,6 +87,34 @@ jQuery(document).ready(function ($) {
         }).change();
     });
 
+    $(function () {
+        $("#type_of_website").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".one_pager_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".one_pager_container").hide();
+                }
+            });
+        }).change();
+    });
+
+    $(function () {
+        $("#type_of_website").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".type_website_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".type_website_container").hide();
+                }
+            });
+        }).change();
+    });
+
     // Form calculations
     $("input").on('keyup', function () {
         $('input[name=additional_pages]').keyup(function () {
