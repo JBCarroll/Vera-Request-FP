@@ -1,4 +1,5 @@
 <?php 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -14,6 +15,5 @@ function vera_custom_css(){
     wp_enqueue_style('vera_css');
 }
 add_action('wp_enqueue_scripts', 'vera_custom_css');
-
 
 ?>
