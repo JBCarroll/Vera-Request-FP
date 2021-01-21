@@ -42,6 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="Web_Design service_container">
                         <label class="fieldlabels">Type of website ?</label>
                             <select id="type_of_website" name="type_of_website" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option value="One_Pager">One Pager</option>
                                 <option value="Standard">Standard</option>
                                 <option value="E-commerce">E-commerce</option>
@@ -49,6 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <div class="Standard E-commerce type_website_container">
                         <label class="fieldlabels">Additional Pages</label>
                             <select name="additional_pages" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>2 Pages</option>
                                 <option>3 Pages</option>
                                 <option>4 Pages</option>
@@ -63,6 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <div class="One_Pager one_pager_container">
                         <label class="fieldlabels">Sections on One-Pager</label>
                             <select name="one_pager_sections" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>Up to 4 Sections</option>
                                 <option>5 Sections</option>
                                 <option>6 Sections</option>
@@ -74,31 +77,36 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </div>
                         <label class="fieldlabels">Newsletter Signup</label>
                             <select name="newsletter_signup" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         <label class="fieldlabels">Training P/H</label>
                             <select name="training" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>1 Hour</option>
                                 <option>2 Hours</option>
                                 <option>3 Hours</option>
                                 <option>4 Hours</option>
                             </select>
                     </div>
-                    <!-- Social Media  Form Container -->
+                    <!-- Social Media Form Container -->
                     <div class="Social_Media service_container">
                         <label class="fieldlabels">Require social media set-up ?</label>
                             <select name="socialmediaQ1" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ2" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ3" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>1 Month</option>
                                 <option>2 Months</option>
                                 <option>3 Months</option>
@@ -113,7 +121,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>12 Months</option>
                             </select>
                         <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ4" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -121,12 +130,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>5</option>
                             </select>
                         <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ5" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ6" class="form-control newsletter_signup">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -135,17 +146,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>10+</option>
                             </select>
                     </div>
-                    <!-- Consulting  Form Container -->
+                    <!-- Consulting Form Container -->
                     <div class="Consulting service_container">
-                        <label class="fieldlabels">Require social media set-up ?</label>
+                        <label class="fieldlabels">Do you have a marketing strategy in place ?</label>
                             <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
+                                <option>Yes</option>
+                                <option>No</option>
                             </select>
                         <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
                             <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
+                                <option>Yes</option>
+                                <option>No</option>
                             </select>
                         <label class="fieldlabels">How many months ?</label>
                             <select name="socialmediaQ1" class="form-control newsletter_signup">
@@ -334,24 +345,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
             <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
-    <!-- Summary Information -->
-        <!-- <fieldset>
-            <div class="form-card">
-                <div class="row">
-                    <div class="col-7">
-                        <h2 class="fs-title">Quote Summary:</h2>
-                    </div>
-                    <div class="col-5">
-                        <h2 class="steps">Step 2 - 4</h2>
-                    </div>
-                </div>
-                <label class="fieldlabels">Project Name: *</label> <input type="text" name="fname" disabled="disabled" id="nameclass"/>
-                <label class="fieldlabels">Project Description: *</label> <input type="text" name="lname" disabled="disabled"/>
-                <label class="fieldlabels">Links: *</label> <input type="text" name="links" disabled="disabled"/>
-                <label class="fieldlabels">Total: *</label> <input type="text" name="total" disabled="disabled" id="total" />
-            </div>
-            <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-        </fieldset> -->
     <!-- Personal Information -->
         <fieldset>
             <div class="form-card">
@@ -369,6 +362,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
                     <div class="col">
                         <label class="fieldlabels">Surname</label> <input type="text" name="surname" class="p_surname"/>
+                    </div>
+                    <div class="col">
+                        <label class="fieldlabels">Company/Business Name</label> <input type="text" name="company_busines_name" class="p_company_name"/>
                     </div>
                 </div>
                 <div class="row">

@@ -7,15 +7,44 @@ function vera_deliver_mail() {
 
     // If the submit button is clicked, send the email
     if ( isset( $_POST['vera-submitted'] ) && !empty($_POST['vera-submitted']) ) {
+        // Switch case for displaying correct body content
+        switch($_POST['type_of_service']){
+            case 'Web_Design':
+                $type_of_website    = ( $_POST["type_of_website"] );
+                $additional_pages    = ( $_POST["additional_pages"] );
+                $one_pager_sections    = ( $_POST["one_pager_sections"] );
+                $newsletter_signup    = ( $_POST["newsletter_signup"] );
+                $training    = ( $_POST["training"] );
+            break;
+            case 'Social_Media':
+                $socialmediaQ1 = ( $_POST["socialmediaQ1"] );
+                $socialmediaQ2 = ( $_POST["socialmediaQ2"] );
+                $socialmediaQ3 = ( $_POST["socialmediaQ3"] );
+                $socialmediaQ4 = ( $_POST["socialmediaQ4"] );
+                $socialmediaQ5 = ( $_POST["socialmediaQ5"] );
+                $socialmediaQ6 = ( $_POST["socialmediaQ6"] );
+            break;
+            case 'Consulting':
+                // do Something for Consulting
+            break;
+            case 'Graphic_Design':
+                // do Something for Graphic Design
+            break;
+            case 'Business_Box':
+                // do Something for Business in a Box
+            break;
+            case 'Promotions':
+                // do Something for Promotions
+            break;
+        }
+        
         // Sanitize form values
+        // Type of Service Variable
         $service    = ( $_POST["type_of_service"] );
-        $type_of_website    = ( $_POST["type_of_website"] );
-        $additional_pages    = ( $_POST["additional_pages"] );
-        $one_pager_sections    = ( $_POST["one_pager_sections"] );
-        $newsletter_signup    = ( $_POST["newsletter_signup"] );
-        $training    = ( $_POST["training"] );
-        $name    = sanitize_text_field( $_POST["firstname"] );
+        // Personal Information Variables
+        $firstname    = sanitize_text_field( $_POST["firstname"] );
         $surname = sanitize_text_field( $_POST["surname"] );
+        $company_name = sanitize_text_field( $_POST["company_busines_name"] );
         $phone = sanitize_text_field( $_POST["phone"] );
         $email   = sanitize_email( $_POST["email"] );
         // Get the blog administrator's email address
@@ -24,18 +53,27 @@ function vera_deliver_mail() {
         // Email Body
         $message = "<div>
                     <h3>Personal Information</h3>
-                    <p>First Name: $name</p>
+                    <p>First Name: $firstname</p>
                     <p>Surname: $surname</p>
+                    <p>Company/Business Name: $company_name</p>
                     <p>Contact Number: $phone</p>
                     <p>Email Address: $email</p>
                     <hr>
                     <h3>Quote Information</h3>
                     <p>Selected Service: $service</p>
+
                     <p>Type of Website: $type_of_website</p>
                     <p>Sections for One-Pager: $one_pager_sections</p>
                     <p>Number of Additional Pages: $additional_pages</p>
                     <p>Newsletter Signup: $newsletter_signup</p>
                     <p>Training P/H: $training</p>
+
+                    <p>Require social media set-up: $socialmediaQ1</p>
+                    <p>Require Ad management: $socialmediaQ2</p>
+                    <p>How many months: $socialmediaQ3</p>
+                    <p>How many ads: $socialmediaQ4</p>
+                    <p>Require adhoc posts: $socialmediaQ5</p>
+                    <p>How many adhoc posts: $socialmediaQ6</p>
                     </div>";
         // Filter to add email content type
         add_filter('wp_mail_content_type', function($content_type){
