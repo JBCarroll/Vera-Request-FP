@@ -78,10 +78,10 @@ jQuery(document).ready(function ($) {
             $(this).find("option:selected").each(function () {
                 var optionValue = $(this).attr("value");
                 if (optionValue) {
-                    $(".service_container").not("." + optionValue).hide();
+                    $(".tab_container").not("." + optionValue).hide();
                     $("." + optionValue).show();
                 } else {
-                    $(".service_container").hide();
+                    $(".tab_container").hide();
                 }
             });
         }).change();
@@ -217,5 +217,4 @@ jQuery(document).ready(function ($) {
     //     var total_newsletter = +$('.newsletter_signup').val();
     //     $("#total").val(total_pages + total_sections + total_newsletter);
     // });
-
 });

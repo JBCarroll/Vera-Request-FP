@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </div>
                 </div>
                     <!-- Web Design Form Container -->
-                    <div class="Web_Design service_container">
+                    <div class="Web_Design tab_container">
                         <label class="fieldlabels">Type of website ?</label>
                             <select id="type_of_website" name="type_of_website" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
@@ -94,24 +94,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>No, I will provide my own</option>
                             </select>
                         </div>
-                        <div class="row">
-                        <div class="col E-commerce Standard One_Pager ecommerce_container">
-                        <label class="fieldlabels">Would you like Live Chat functionality?</label>
-                            <select name="ecommerce_live_chat" class="form-control">
-                                <option disabled selected value> -- select an option -- </option>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        </div>
-                        <div class="col E-commerce Standard One_Pager ecommerce_container">
-                        <label class="fieldlabels">Would you like Newsletter signup functionality?</label>
-                            <select name="ecommerce_newsletter" class="form-control">
-                                <option disabled selected value> -- select an option -- </option>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        </div>
-                        </div>
                         <div class="E-commerce ecommerce_container">
                         <label class="fieldlabels form-label">Estimated number of products</label>
                             <select name="ecommerce_products" class="form-control">
@@ -122,9 +104,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>Can't say right now</option>
                             </select>
                         </div>
+                        <div class="row">
+                        <div class="col E-commerce Standard One_Pager ecommerce_container">
+                        <label class="fieldlabels">Would you like Live Chat functionality?</label>
+                            <select name="livechat" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                        <div class="col E-commerce Standard One_Pager ecommerce_container">
+                        <label class="fieldlabels">Would you like Newsletter signup functionality?</label>
+                            <select name="newsletter_signup" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                        </div>
                     </div>
                     <!-- Social Media Form Container -->
-                    <div class="Social_Media service_container">
+                    <div class="Social_Media tab_container">
                         <label class="fieldlabels">Require social media set-up ?</label>
                             <select name="socialmediaQ1" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
@@ -182,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </select>
                     </div>
                     <!-- Graphic Design  Form Container -->
-                    <div class="Graphic_Design service_container">
+                    <div class="Graphic_Design tab_container">
                         <label class="fieldlabels">Type of service?</label>
                             <select id="graphics_services" name="" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
@@ -211,11 +211,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </div>
                     </div>
             </div>
-            <input type="button" name="next" class="next action-button" value="Next" />
+            <input type="button" name="next" class="steps next action-button" value="Next" />
         </fieldset>
     <!-- Personal Information -->
         <fieldset>
-            <div class="form-card">
+            <div class="form-card personal_tabs">
                 <div class="row">
                     <div class="col-7">
                         <h2 class="fs-title">Personal Information:</h2>
@@ -244,7 +244,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
                 </div>
             </div>
-            <input type="submit" name="vera-submitted" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+            <input type="submit" name="vera-submitted" class="next action-button" value="Submit" /> <input type="button" name="previous" class="steps previous action-button-previous" value="Previous" />
         </fieldset>
     <!-- Thank You Step -->
         <fieldset>

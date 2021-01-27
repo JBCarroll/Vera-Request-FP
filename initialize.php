@@ -25,36 +25,33 @@ function vera_deliver_mail() {
 
         switch($_POST['type_of_service']){
             case 'Web_Design':
-                $web_full_body = "";
-                foreach ($_POST as $Field=>$Value){
-                    if($Value != ""){
-                        $web_full_body .= "$Field: $Value\n\n";
-                    }
-                }
+                
+                include("form_checker.php");
 
                 $type_of_website    = ( $_POST["type_of_website"] );
-                $additional_pages    = ( $_POST["additional_pages"] );
-                $one_pager_sections    = ( $_POST["one_pager_sections"] );
                 $newsletter_signup    = ( $_POST["newsletter_signup"] );
-                $training    = ( $_POST["training"] );
+                $livechat = ( $_POST["livechat"] );
+                $Affordability_range = ( $_POST["Affordability_range"] );
 
-                $web_service_body = "<div>
-                    <h3>Personal Information</h3>
-                    <p>First Name: $firstname</p>
-                    <p>Surname: $surname</p>
-                    <p>Company/Business Name: $company_name</p>
-                    <p>Contact Number: $phone</p>
-                    <p>Email Address: $email</p>
-                    <hr>
+                $web_service_body = "<div style='font-family: 'roboto', sans-serif;'>
+                    <h2 style='background: #066963; padding: 10px; color: #fff;'>Personal Information</h2>
+                    <p style='padding: 5px;'><strong>First Name</strong>: <span style='border-bottom: 1px solid #066963;'>$firstname</span></p>
+                    <p style='padding: 5px;'><strong>Surname</strong>: <span style='border-bottom: 1px solid #066963;'>$surname</span></p>
+                    <p style='padding: 5px;'><strong>Company/Business Name</strong>: <span style='border-bottom: 1px solid #066963;'>$company_name</span></p>
+                    <p style='padding: 5px;'><strong>Contact Number</strong>: <span style='border-bottom: 1px solid #066963;'>$phone</span></p>
+                    <p style='padding: 5px;'><strong>Email Address</strong>: <span style='border-bottom: 1px solid #066963;'>$email</span></p>
 
-                    <h3>Quote Information</h3>
-                    <p>Selected Service: $service</p>
+                    <h2 style='background: #066963; padding: 10px; color: #fff;'>Project Specifications</h2>
+                    <p style='padding: 5px;'>Selected Service: $service</p>
 
-                    <p>Type of Website: $type_of_website</p>
-                    <p>$one_pager_sections</p>
-                    <p>$additional_pages</p>
-                    <p>Newsletter Signup: $newsletter_signup</p>
-                    <p>Training P/H: $training</p>
+                    <p style='padding: 5px;'>Type of Website: $type_of_website</p>
+                    <p style='padding: 5px;'>$one_pager_body</p>
+                    <p style='padding: 5px;'>$additional_pager_body</p>
+                    <p style='padding: 5px;'>$ecommerce_products_total</p>
+                    <p style='padding: 5px;'>Newsletter Signup: $newsletter_signup</p>
+                    <p style='padding: 5px;'>Live Chat Functionality: $livechat</p>
+
+                    <h3 style='background: #066963; padding: 10px; color: #fff;'>Budget Range: $Affordability_range</h3>
                     </div>";
 
                 // Filter to add email content type
