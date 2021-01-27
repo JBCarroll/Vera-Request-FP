@@ -8,6 +8,7 @@
     text-align: center;
     position: relative;
     margin-top: 20px;
+    font-family: "Roboto", Sans-serif;
 }
 
 #veraform fieldset {
@@ -116,9 +117,26 @@
     text-align: right;
 }
 
+.form-control:focus{
+    border-color: #ebebeb !important;
+    box-shadow: 0 0 0 .2rem rgba(6,105,99,.25) !important;
+}
+
+.form-control{
+    border-color: #ebebeb !important;
+    height: 50px !important;
+    background: #f3f4f5 !important;
+}
+
+.form-control:hover{
+    border-color: #ebebeb !important;
+    box-shadow: 0 0 0 .2rem rgba(6,105,99,.25) !important;
+}
+
 .fieldlabels {
     color: gray;
     text-align: left;
+    padding: 10px 0;
 }
 
 #progressbar {
