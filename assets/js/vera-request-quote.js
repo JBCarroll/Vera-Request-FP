@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
-    // Conditional Form fields
+    // Main Selection Conditional Form fields
     $(function () {
         $("#select").change(function () {
             $(this).find("option:selected").each(function () {
@@ -87,6 +87,7 @@ jQuery(document).ready(function ($) {
         }).change();
     });
 
+    // One Pager Conditional Fields
     $(function () {
         $("#type_of_website").change(function () {
             $(this).find("option:selected").each(function () {
@@ -101,47 +102,120 @@ jQuery(document).ready(function ($) {
         }).change();
     });
 
+    // Standard Website Conditional Fields
     $(function () {
         $("#type_of_website").change(function () {
             $(this).find("option:selected").each(function () {
                 var optionValue = $(this).attr("value");
                 if (optionValue) {
-                    $(".type_website_container").not("." + optionValue).hide();
+                    $(".standard_website_container").not("." + optionValue).hide();
                     $("." + optionValue).show();
                 } else {
-                    $(".type_website_container").hide();
+                    $(".standard_website_container").hide();
+                }
+            });
+        }).change();
+    });
+
+    // Ecommerce Conditional Fields
+    $(function () {
+        $("#type_of_website").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".ecommerce_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".ecommerce_container").hide();
+                }
+            });
+        }).change();
+    });
+    $(function () {
+        $("#social_campaigns").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".ecommerce_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".ecommerce_container").hide();
+                }
+            });
+        }).change();
+    });
+
+        // Social Media Conditional Fields
+        $(function () {
+            $("#social_campaigns").change(function () {
+                $(this).find("option:selected").each(function () {
+                    var optionValue = $(this).attr("value");
+                    if (optionValue) {
+                        $(".social_media_container").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else {
+                        $(".social_media_container").hide();
+                    }
+                });
+            }).change();
+        });
+
+    // Graphics Design Conditional Fields
+    $(function () {
+        $("#graphics_services").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".graphics_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".graphics_container").hide();
+                }
+            });
+        }).change();
+    });
+    $(function () {
+        $("#graphics_new_logo").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".graphics_new_logo_container").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".graphics_new_logo_container").hide();
                 }
             });
         }).change();
     });
 
     // Form calculations
-    $("input").on('keyup', function () {
-        $('input[name=additional_pages]').keyup(function () {
-            if ($(this).val().length) {
-                $(".additional_pages").addClass('pages_price');
-            } else {
-                $(".additional_pages").removeClass("pages_price");
-            }
-        });
-        $('input[name=additional_sections]').keyup(function () {
-            if ($(this).val().length) {
-                $(".additional_sections").addClass('sections_price');
-            } else {
-                $(".additional_sections").removeClass("sections_price");
-            }
-        });
-        $('input[name=newsletter_signup]').keyup(function () {
-            if ($(this).val().length) {
-                $(".newsletter_signup").addClass('newsletter_price');
-            } else {
-                $(".newsletter_signup").removeClass("newsletter_price");
-            }
-        });
+    // $("input").on('keyup', function () {
+    //     $('input[name=additional_pages]').keyup(function () {
+    //         if ($(this).val().length) {
+    //             $(".additional_pages").addClass('pages_price');
+    //         } else {
+    //             $(".additional_pages").removeClass("pages_price");
+    //         }
+    //     });
+    //     $('input[name=additional_sections]').keyup(function () {
+    //         if ($(this).val().length) {
+    //             $(".additional_sections").addClass('sections_price');
+    //         } else {
+    //             $(".additional_sections").removeClass("sections_price");
+    //         }
+    //     });
+    //     $('input[name=newsletter_signup]').keyup(function () {
+    //         if ($(this).val().length) {
+    //             $(".newsletter_signup").addClass('newsletter_price');
+    //         } else {
+    //             $(".newsletter_signup").removeClass("newsletter_price");
+    //         }
+    //     });
 
-        var total_pages = +$('.additional_pages').val() * 950;
-        var total_sections = +$('.additional_sections').val() * 350;
-        var total_newsletter = +$('.newsletter_signup').val();
-        $("#total").val(total_pages + total_sections + total_newsletter);
-    });
+    //     var total_pages = +$('.additional_pages').val() * 950;
+    //     var total_sections = +$('.additional_sections').val() * 350;
+    //     var total_newsletter = +$('.newsletter_signup').val();
+    //     $("#total").val(total_pages + total_sections + total_newsletter);
+    // });
+
 });

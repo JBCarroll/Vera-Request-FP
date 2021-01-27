@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="container-fluid">
-    <form id="veraform" action="<?php esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="POST">
+    <form id="veraform" class="needs-validation" action="<?php esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="POST" novalidate>
         <ul id="progressbar">
             <li class="active" id="account"><strong>Specifications</strong></li>
             <li id="payment"><strong>Personal</strong></li>
@@ -22,22 +22,33 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="form-card">
                 <div class="row">
                     <div class="col-7">
-                        <h2 class="fs-title">Project Specifications:</h2>
+                        <h2 class="fs-title">Ideal Project:</h2>
                     </div>
                     <div class="col-5">
                         <h2 class="steps">Step 1 - 3</h2>
                     </div>
                 </div>
-                <label id="formservices" class="fieldlabels">Type of service</label>
+                <div class="row">
+                <div class="col">
+                <label id="formservices" class="fieldlabels">What services do you require?</label>
                     <select id="select" class="form-control" name="type_of_service">
-                        <option disabled selected value> -- select an option -- </option>
-                        <option value="Web_Design">Web Design</option>
-                        <option value="Social_Media">Social Media</option>
-                        <option value="Consulting">Consulting</option>
+                    <option disabled selected value=""> -- select an option -- </option>
+                        <option value="Web_Design">Website Design</option>
+                        <option value="Social_Media">Social Media Management</option>
                         <option value="Graphic_Design">Graphic Design</option>
-                        <option value="Business_Box">Business in a box</option>
-                        <option value="Promotions">Promotions</option>
                     </select>
+                </div>
+                <div class="col">
+                <label class="fieldlabels">Affordability Range</label>
+                    <select class="form-control" name="Affordability_range" required>
+                        <option disabled selected value=""> -- select an option -- </option>
+                        <option>Less than 1000</option>
+                        <option>1000 - 5000</option>
+                        <option>5000 - 15 000</option>
+                        <option>15 000 - 20 000</option>
+                    </select>
+                </div>
+                </div>
                     <!-- Web Design Form Container -->
                     <div class="Web_Design service_container">
                         <label class="fieldlabels">Type of website ?</label>
@@ -47,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option value="Standard">Standard</option>
                                 <option value="E-commerce">E-commerce</option>
                             </select>
-                        <div class="Standard E-commerce type_website_container">
+                        <div class="Standard standard_website_container">
                         <label class="fieldlabels">Additional Pages</label>
                             <select name="additional_pages" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
@@ -63,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </select>
                         </div>
                         <div class="One_Pager one_pager_container">
-                        <label class="fieldlabels">Sections on One-Pager</label>
+                        <label class="fieldlabels">Number of sections</label>
                             <select name="one_pager_sections" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>Up to 4 Sections</option>
@@ -75,53 +86,85 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>10 Sections</option>
                             </select>
                         </div>
-                        <label class="fieldlabels">Newsletter Signup</label>
-                            <select name="newsletter_signup" class="form-control newsletter_signup">
+                        <div class="Standard One_Pager standard_website_container">
+                        <label class="fieldlabels">Would you like stock images?</label>
+                            <select name="stock_images" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Yes</option>
+                                <option>No, I will provide my own</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                        <div class="col E-commerce Standard One_Pager ecommerce_container">
+                        <label class="fieldlabels">Would you like Live Chat functionality?</label>
+                            <select name="ecommerce_live_chat" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
-                        <label class="fieldlabels">Training P/H</label>
-                            <select name="training" class="form-control">
+                        </div>
+                        <div class="col E-commerce Standard One_Pager ecommerce_container">
+                        <label class="fieldlabels">Would you like Newsletter signup functionality?</label>
+                            <select name="ecommerce_newsletter" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
-                                <option>1 Hour</option>
-                                <option>2 Hours</option>
-                                <option>3 Hours</option>
-                                <option>4 Hours</option>
+                                <option>Yes</option>
+                                <option>No</option>
                             </select>
+                        </div>
+                        </div>
+                        <div class="E-commerce ecommerce_container">
+                        <label class="fieldlabels form-label">Estimated number of products</label>
+                            <select name="ecommerce_products" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>5+</option>
+                                <option>20+</option>
+                                <option>50+</option>
+                                <option>Can't say right now</option>
+                            </select>
+                        </div>
                     </div>
                     <!-- Social Media Form Container -->
                     <div class="Social_Media service_container">
                         <label class="fieldlabels">Require social media set-up ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
+                            <select name="socialmediaQ1" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
-                        <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ2" class="form-control newsletter_signup">
+                        <label class="fieldlabels">How many platforms will you be active on?</label>
+                            <select name="socialmediaQ2" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
-                                <option>Yes</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        <label class="fieldlabels">How many times a week would you like us to post?</label>
+                            <select name="socialmediaQ3" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        <div class="row">
+                        <div class="col">
+                        <label class="fieldlabels">Would you like to include ad campaigns in your package?</label>
+                            <select id="social_campaigns" name="socialmediaQ4" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Campaigns-Yes">Yes</option>
                                 <option>No</option>
                             </select>
-                        <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ3" class="form-control newsletter_signup">
-                                <option disabled selected value> -- select an option -- </option>
-                                <option>1 Month</option>
-                                <option>2 Months</option>
-                                <option>3 Months</option>
-                                <option>4 Months</option>
-                                <option>5 Months</option>
-                                <option>6 Months</option>
-                                <option>7 Months</option>
-                                <option>8 Months</option>
-                                <option>9 Months</option>
-                                <option>10 Months</option>
-                                <option>11 Months</option>
-                                <option>12 Months</option>
-                            </select>
-                        <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ4" class="form-control newsletter_signup">
+                        </div>
+                        <div class="col Campaigns-Yes social_media_container">
+                        <label class="fieldlabels">How many ads would you like to do per month?</label>
+                            <select name="socialmediaQ5" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>1</option>
                                 <option>2</option>
@@ -129,218 +172,43 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <option>4</option>
                                 <option>5</option>
                             </select>
-                        <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ5" class="form-control newsletter_signup">
+                        </div>
+                        </div>
+                        <label class="fieldlabels">Would you like us to enage and interact on your behalf?</label>
+                            <select name="socialmediaQ6" class="form-control">
                                 <option disabled selected value> -- select an option -- </option>
                                 <option>Yes</option>
                                 <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ6" class="form-control newsletter_signup">
-                                <option disabled selected value> -- select an option -- </option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>10+</option>
-                            </select>
-                    </div>
-                    <!-- Consulting Form Container -->
-                    <div class="Consulting service_container">
-                        <label class="fieldlabels">Do you have a marketing strategy in place ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1 Month</option>
-                                <option>2 Months</option>
-                                <option>3 Months</option>
-                                <option>4 Months</option>
-                                <option>5 Months</option>
-                                <option>6 Months</option>
-                                <option>7 Months</option>
-                                <option>8 Months</option>
-                                <option>9 Months</option>
-                                <option>10 Months</option>
-                                <option>11 Months</option>
-                                <option>12 Months</option>
-                            </select>
-                        <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                     </div>
                     <!-- Graphic Design  Form Container -->
                     <div class="Graphic_Design service_container">
-                        <label class="fieldlabels">Require social media set-up ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
+                        <label class="fieldlabels">Type of service?</label>
+                            <select id="graphics_services" name="" class="form-control">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="New-Logo">New Logo Design</option>
+                                <option>Logo Redesign</option>
+                                <option>Email Signature</option>
+                                <option>Business Cards</option>
+                                <option>Company Profile</option>
+                                <option value="Other">Other</option>
                             </select>
-                        <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1 Month</option>
-                                <option>2 Months</option>
-                                <option>3 Months</option>
-                                <option>4 Months</option>
-                                <option>5 Months</option>
-                                <option>6 Months</option>
-                                <option>7 Months</option>
-                                <option>8 Months</option>
-                                <option>9 Months</option>
-                                <option>10 Months</option>
-                                <option>11 Months</option>
-                                <option>12 Months</option>
-                            </select>
-                        <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                    </div>
-                    <!-- Business Box  Form Container -->
-                    <div class="Business_Box service_container">
-                        <label class="fieldlabels">Require social media set-up ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1 Month</option>
-                                <option>2 Months</option>
-                                <option>3 Months</option>
-                                <option>4 Months</option>
-                                <option>5 Months</option>
-                                <option>6 Months</option>
-                                <option>7 Months</option>
-                                <option>8 Months</option>
-                                <option>9 Months</option>
-                                <option>10 Months</option>
-                                <option>11 Months</option>
-                                <option>12 Months</option>
-                            </select>
-                        <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                    </div>
-                    <!-- Promotions  Form Container -->
-                    <div class="Promotions service_container">
-                        <label class="fieldlabels">Require social media set-up ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        <label class="fieldlabels">Require Ad management fee per month / per ad ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option value="750">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        <label class="fieldlabels">How many months ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1 Month</option>
-                                <option>2 Months</option>
-                                <option>3 Months</option>
-                                <option>4 Months</option>
-                                <option>5 Months</option>
-                                <option>6 Months</option>
-                                <option>7 Months</option>
-                                <option>8 Months</option>
-                                <option>9 Months</option>
-                                <option>10 Months</option>
-                                <option>11 Months</option>
-                                <option>12 Months</option>
-                            </select>
-                        <label class="fieldlabels">How many ads ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        <label class="fieldlabels">Require adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        <label class="fieldlabels">How many adhoc posts ?</label>
-                            <select name="socialmediaQ1" class="form-control newsletter_signup">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                        <div class="New-Logo graphics_container"> 
+                            <label class="fieldlabels">Do you currently have an existing logo?</label>
+                                <select id="graphics_new_logo" name="" class="form-control">
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option value="New-Logo-Yes">Yes</option>
+                                    <option>No</option>
+                                </select>
+                        </div>
+                        <div class="New-Logo-Yes graphics_container"> 
+                            <label class="fieldlabels">Please upload your existing logo</label>
+                            <input type="file" class="form-control-file">
+                        </div>
+                        <div class="Other graphics_container"> 
+                            <label class="fieldlabels">Please describe, what you are looking for</label>
+                                <textarea class="form-control" name="other_description" rows="3"></textarea>
+                        </div>
                     </div>
             </div>
             <input type="button" name="next" class="next action-button" value="Next" />
